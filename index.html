@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diamond NFT Arbitrage Business Model</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050816;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { color: #38bdf8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: linear-gradient(to right, rgba(56,189,248,0.15), rgba(147,51,234,0.15));
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 12px;
+      color: #a5b4fc;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    header {
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(148,163,184,0.35);
+      margin-bottom: 32px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 40px);
+      margin: 16px 0 12px;
+      background: linear-gradient(to right, #e5e7eb, #a5b4fc);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .subtitle {
+      font-size: 15px;
+      max-width: 680px;
+      color: #cbd5f5;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    /* Layout */
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      gap: 24px;
+    }
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 50%),
+                  radial-gradient(circle at bottom right, rgba(147,51,234,0.18), transparent 55%),
+                  #020617;
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.35);
+      padding: 18px 18px 20px;
+      box-shadow: 0 18px 60px rgba(15,23,42,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(248,250,252,0.06), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    .card > * { position: relative; z-index: 1; }
+
+    h2 {
+      font-size: 18px;
+      margin: 0 0 8px;
+      color: #e5e7eb;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 16px 0 6px;
+      color: #e5e7eb;
+    }
+    p { font-size: 14px; }
+
+    ul {
+      padding-left: 18px;
+      margin: 6px 0 4px;
+      font-size: 13px;
+    }
+    li + li { margin-top: 2px; }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .tag {
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 2px 8px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: #9ca3af;
+    }
+
+    /* Diagram */
+    .diagram-wrapper {
+      margin-top: 8px;
+      padding: 10px 10px 12px;
+      border-radius: 16px;
+      border: 1px dashed rgba(148,163,184,0.55);
+      background: rgba(15,23,42,0.9);
+      font-size: 12px;
+    }
+    .diagram-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9ca3af;
+      margin-bottom: 6px;
+    }
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    @media (max-width: 900px) {
+      .diagram-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    .node {
+      border-radius: 14px;
+      padding: 8px 9px;
+      background: linear-gradient(to bottom right, rgba(15,23,42,0.9), rgba(17,24,39,0.9));
+      border: 1px solid rgba(148,163,184,0.55);
+      position: relative;
+      min-height: 60px;
+    }
+    .node span.label {
+      display: inline-block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a5b4fc;
+      margin-bottom: 4px;
+    }
+    .node strong {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+    }
+    .node small {
+      display: block;
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .arrow-down {
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 0;
+      color: #64748b;
+    }
+
+    /* Right column */
+    .key-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .metric {
+      background: rgba(15,23,42,0.9);
+      border-radius: 12px;
+      padding: 8px 10px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 12px;
+    }
+    .metric-label {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .metric-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+    .metric-sub {
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(51,65,85,0.8);
+    }
+    th {
+      background: rgba(15,23,42,0.95);
+      text-align: left;
+      font-weight: 500;
+      color: #cbd5e1;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:nth-child(even) td {
+      background: rgba(15,23,42,0.7);
+    }
+
+    /* Sections */
+    section + section {
+      margin-top: 18px;
+    }
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .section-title-row small {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .footnote {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="pill">
+        <span>Diamond RWA · Profit-Sharing NFT</span>
+      </div>
+      <h1>Diamond-Based Profit-Sharing NFT & Arbitrage Pool</h1>
+      <p class="subtitle">
+        200달러짜리 투명 랩그로운 다이아몬드를 컬러링·감정하여 부가가치를 높이고,
+        해당 다이아몬드를 기반으로 한 수익배당형 NFT를 발행합니다.
+        NFT 판매대금은 아비트리지 풀에 운용하고, NFT 스테이킹을 통하여
+        연 8~10% 수준의 스테이블코인 보상을 지급하며,
+        특정 토큰을 함께 스테이킹하면 최대 +2%의 부스터 이율을 제공합니다.
+      </p>
+      <div class="badge-row">
+        <span>실물 담보 (RWA)</span>
+        <span>수익배당형 NFT</span>
+        <span>DEX 스테이킹</span>
+        <span>Arbitrage 수익 기반</span>
+      </div>
+    </header>
+
+    <main>
+      <!-- LEFT: Flow & Logic -->
+      <div>
+        <!-- High-level model -->
+        <section class="card">
+          <h2>비즈니스 모델 한 눈에 보기</h2>
+          <p>
+            이 모델은 <strong>① 물리적 가치 상승(컬러링 다이아)</strong>과 
+            <strong>② DeFi 아비트리지 수익</strong>을 결합하여,
+            <strong>수익배당형 다이아몬드 NFT</strong> 홀더에게 안정적인 스테이블코인 수익을 제공합니다.
+          </p>
+
+          <div class="diagram-wrapper">
+            <div class="diagram-title">End-to-End Value Flow</div>
+            <div class="diagram-grid">
+              <div class="node">
+                <span class="label">Step 1 · Off-chain</span>
+                <strong>다이아몬드 확보</strong>
+                <small>
+                  초기 자본으로 200$ 투명 랩그로운 다이아 구매<br />
+                  전자빔 + 열처리 컬러링 &amp; 감정
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 2 · Value Upgrade</span>
+                <strong>컬러링 &amp; 감정</strong>
+                <small>
+                  색 변화 및 희소 컬러 확보<br />
+                  예: 200$ → 300~400$ 가치
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 3 · On-chain</span>
+                <strong>수익배당형 NFT 발행</strong>
+                <small>
+                  다이아 1개당 10 NFT<br />
+                  NFT 1개 ≈ 40$
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 4 · Treasury</span>
+                <strong>Arbitrage Pool 운용</strong>
+                <small>
+                  NFT 판매대금을 아비트리지/DeFi에 투입<br />
+                  목표 수익률 예: 연 12~20%
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 5 · Staking</span>
+                <strong>DEX NFT 스테이킹</strong>
+                <small>
+                  NFT를 DEX에 스테이킹<br />
+                  연 8~10% 스테이블코인 수익
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 6 · Boost</span>
+                <strong>이율 부스터</strong>
+                <small>
+                  특정 토큰 1~2개 동시 스테이킹 시<br />
+                  최대 +2% 추가 APR
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 7 · Profit Split</span>
+                <strong>수익 배분</strong>
+                <small>
+                  아비트리지 수익 → NFT 홀더 보상 지급<br />
+                  잔여분은 프로젝트 운영·R&amp;D 재투자
+                </small>
+              </div>
+              <div class="node">
+                <span class="label">Step 8 · Reporting</span>
+                <strong>투명한 리포팅</strong>
+                <small>
+                  다이아 정보·감정서·수익률<br />
+                  온체인/오프체인 정기 공개
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">RWA Diamond</span>
+            <span class="tag">Profit-Sharing Only (소유권 X)</span>
+            <span class="tag">Stablecoin Rewards</span>
+          </div>
+        </section>
+
+        <!-- Mechanics -->
+        <section class="card" style="margin-top:16px;">
+          <div class="section-title-row">
+            <h2>핵심 구조 · How It Works</h2>
+            <small>Off-chain 실물 가치 + On-chain 수익 배당</small>
+          </div>
+
+          <h3>1. 실물 다이아몬드 &amp; 컬러링</h3>
+          <ul>
+            <li>초기 자본으로 <strong>200달러 수준의 투명 랩그로운 다이아몬드</strong>를 매입.</li>
+            <li>전자빔 + 열처리 컬러링, 후속 열처리 및 감정을 통해 <strong>색상·희소성 업그레이드</strong>.</li>
+            <li>컬러 변화 데이터는 향후 <strong>과학 기반 RWA 리포트</strong>로도 재활용 가능.</li>
+          </ul>
+
+          <h3>2. 수익배당형 NFT 발행 (Fraction-like, Ownership X)</h3>
+          <ul>
+            <li>다이아 1개 기준, <strong>10개의 NFT</strong> 발행 (고정 수량, 재발행 불가).</li>
+            <li>각 NFT는 다이아의 <strong>소유권이 아닌, 아비트리지 풀 수익 배당권</strong>을 의미.</li>
+            <li>예시 가격: NFT 1개 ≈ 40달러 → 다이아 1개당 약 400달러 조달.</li>
+          </ul>
+
+          <h3>3. NFT 판매대금 → Arbitrage Pool로 이동</h3>
+          <ul>
+            <li>모든 NFT 판매대금은 <strong>Arbitrage/DeFi 운용 풀</strong>에 적립.</li>
+            <li>목표 수익률: 연 12~20% (시장 상황에 따라 탄력 조정).</li>
+            <li>풀은 온체인 트래킹 및 월/분기 단위 리포트 제공.</li>
+          </ul>
+
+          <h3>4. DEX NFT 스테이킹 &amp; 보상</h3>
+          <ul>
+            <li>NFT 보유자는 제휴 DEX(예: VyFi)에 NFT를 <strong>스테이킹</strong>할 수 있음.</li>
+            <li>기본 APR: <strong>연 8~10% 수준의 스테이블코인 보상</strong>을 목표.</li>
+            <li>추가 조건 (<strong>프로젝트 토큰·DEX 토큰 동시 스테이킹</strong> 등)을 만족하면 APR 최대 +2% 부스터.</li>
+          </ul>
+
+          <h3>5. 수익 분배 로직 (예시)</h3>
+          <ul>
+            <li>풀의 <strong>총 수익률: 16%</strong>라고 가정하면,</li>
+            <li>그 중 평균 <strong>8~10%는 NFT 홀더에게 스테이블코인으로 배당</strong>.</li>
+            <li>잔여 6~8%는 <strong>운영비, 리스크 대비, 컬러링 R&amp;D, 신규 다이아 매입</strong>에 사용.</li>
+          </ul>
+        </section>
+
+        <!-- On-chain design -->
+        <section class="card" style="margin-top:16px;">
+          <div class="section-title-row">
+            <h2>NFT &amp; Smart Contract 구조 (요약)</h2>
+            <small>Cardano 기반 수익배당형 RWA NFT</small>
+          </div>
+
+          <h3>1. NFT 메타데이터 (주요 필드)</h3>
+          <ul>
+            <li><strong>underlying_asset</strong>: 다이아 ID, 컬러링 방식, 캐럿, 감정 결과.</li>
+            <li><strong>profit_right</strong>: 이 NFT가 가지는 수익 배당 비율(예: 1/10), 목표 APR.</li>
+            <li><strong>staking</strong>: 어느 DEX에서, 어떤 리워드(스테이블코인)를, 얼마마다 지급.</li>
+            <li><strong>issuer</strong>: TransDia / Silver Edge 등 발행 주체 정보.</li>
+          </ul>
+
+          <h3>2. 스마트컨트랙트 컴포넌트</h3>
+          <ul>
+            <li><strong>NFT Minting Contract</strong> – 다이아당 10개 NFT 발행, 재발행/증발 불가.</li>
+            <li><strong>Staking Contract</strong> – NFT 예치, 예치 기간 계산, APR·부스터 적용.</li>
+            <li><strong>Reward Pool Contract</strong> – 아비트리지 수익이 들어오는 풀, 월별 보상 계산 및 분배.</li>
+            <li><strong>Oracle / Reporting Layer</strong> – 감정 정보, 수익률, 리포트 해시를 온체인에 기록.</li>
+          </ul>
+
+          <h3>3. 투자자의 관점</h3>
+          <ul>
+            <li>실물 다이아가 <strong>프로젝트 자산</strong>으로 백업되어 있다는 점에서 신뢰도 확보.</li>
+            <li>NFT는 언제든지 <strong>2차 시장에서 매도</strong> 가능 (유동성).</li>
+            <li>스테이킹을 통해 <strong>예측 가능한 수익률(8~12%)</strong>을 기대할 수 있음.</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- RIGHT: Numbers & ROI & FAQ style -->
+      <div>
+        <section class="card">
+          <h2>대표 예시: 1개 다이아 · 10개 NFT</h2>
+          <p style="font-size:13px;">
+            아래는 <strong>200달러 다이아몬드 1개</strong>를 기준으로 한 단순화된 수치 예시입니다.
+            실제 수익률과 수치는 시장 상황 및 아비트리지 전략에 따라 조정 가능합니다.
+          </p>
+
+          <div class="key-metrics">
+            <div class="metric">
+              <div class="metric-label">다이아 원가 (투명)</div>
+              <div class="metric-value">$200</div>
+              <div class="metric-sub">컬러링 전, 공업·보석용 랩그로운</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">컬러링 후 가치</div>
+              <div class="metric-value">$300 ~ $400</div>
+              <div class="metric-sub">감정 결과 및 컬러 희소성에 따라</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">NFT 발행 수량</div>
+              <div class="metric-value">10 개</div>
+              <div class="metric-sub">1 NFT ≈ $40 (예시)</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">연 수익률 구조</div>
+              <div class="metric-value">8~12% APR</div>
+              <div class="metric-sub">기본 + 부스터 포함 구간</div>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th>항목</th>
+                <th>값 (예시)</th>
+                <th>설명</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>다이아 원가</td>
+                <td>$200</td>
+                <td>초기 자본으로 매입, 컬러링 및 감정 비용은 별도 R&amp;D 항목</td>
+              </tr>
+              <tr>
+                <td>총 NFT 판매금</td>
+                <td>$400 (10 × $40)</td>
+                <td>전액 Arbitrage Pool로 투입</td>
+              </tr>
+              <tr>
+                <td>Arbitrage 풀 수익률</td>
+                <td>예: 연 16%</td>
+                <td>전략에 따라 12~20% 구간 목표</td>
+              </tr>
+              <tr>
+                <td>투자자 보상</td>
+                <td>연 8~10%</td>
+                <td>스테이블코인 APR, NFT 스테이킹 기준</td>
+              </tr>
+              <tr>
+                <td>부스터 보상</td>
+                <td>+2% (최대)</td>
+                <td>특정 토큰 동시 스테이킹 조건 충족 시</td>
+              </tr>
+              <tr>
+                <td>프로젝트 몫</td>
+                <td>잔여 6~8%</td>
+                <td>운영비, 리스크 대비, 컬러링 연구 &amp; 재투자</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="footnote">
+            ※ 위 수치는 이해를 돕기 위한 예시이며, 실제 사업 모델에서는
+            규제 환경, 시장 상황, DEX 파트너 협의에 따라 조정됩니다.
+          </p>
+        </section>
+
+        <section class="card" style="margin-top:16px;">
+          <div class="section-title-row">
+            <h2>Arbitrage Pool · ROI 개념 요약</h2>
+            <small>간단한 경제 논리</small>
+          </div>
+          <p style="font-size:13px;">
+            이 모델의 핵심은 <strong>“실제 수익이 있는 풀에서 나오는 배당”</strong>이라는 점입니다.
+            NFT 홀더에게 지급하는 8~10% APR은,
+            아비트리지 풀에서 발생하는 12~20% 수익 중 일부일 뿐입니다.
+          </p>
+          <ul style="font-size:13px;">
+            <li><strong>Gross APY (풀 전체 수익률)</strong>: 예시 16%</li>
+            <li><strong>Investor APR (NFT 보유자)</strong>: 평균 8~10%</li>
+            <li><strong>Operator Margin</strong>: 6~8% (리스크 대비 + R&amp;D)</li>
+          </ul>
+          <p style="font-size:13px;">
+            따라서, <strong>Ponzi 구조가 아니라</strong> 실질적인 Arbitrage/투자 수익을 바탕으로
+            설계된 구조임을 명확히 설명할 수 있습니다.
+          </p>
+        </section>
+
+        <section class="card" style="margin-top:16px;">
+          <h2>투자자 &amp; 파트너를 위한 핵심 메시지</h2>
+          <ul style="font-size:13px;">
+            <li>실물 다이아몬드 + 과학적 컬러링 연구를 기반으로 한 <strong>유일한 RWA NFT</strong>.</li>
+            <li>다이아 가격 상승은 프로젝트의 <strong>장부상 자산</strong>을 강화하고,
+                NFT 홀더는 <strong>아비트리지 수익 배당</strong>에 참여.</li>
+            <li>DEX와 협업하여 NFT 스테이킹/부스터 구조를 설계해
+                <strong>DeFi 생태계와 자연스럽게 연결</strong>.</li>
+            <li>모든 온체인·오프체인 데이터(감정서, 컬러링 조건, 수익률)를
+                정기적으로 공개하여 <strong>투명성 확보</strong>.</li>
+          </ul>
+          <p style="font-size:12px; color:#9ca3af; margin-top:10px;">
+            이 페이지의 내용을 기반으로, 투자자용 Pitch Deck, Catalyst 제안서, DEX 파트너십 제안서 등을
+            쉽게 확장할 수 있습니다.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
