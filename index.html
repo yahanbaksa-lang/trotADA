@@ -2,570 +2,659 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>Diamond NFT Arbitrage Business Model</title>
+  <title>TransDia / Pearl – IR Company Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="보석용 및 산업용 다이아몬드 종합 제조·가공·NFT·RWA 솔루션 기업 트랜스다이아(TransDia) / 펄(Pearl) 회사 소개서(IR Company Profile)" />
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #050816;
-      color: #e5e7eb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
       line-height: 1.6;
+      color: #222;
+      background-color: #f5f7fb;
     }
-    a { color: #38bdf8; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .page {
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: radial-gradient(circle at top left, #4a6bff, #101840);
+      color: #fff;
+      padding: 32px 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .max-width {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 16px 64px;
+      padding: 0 8px;
     }
-    .pill {
-      display: inline-flex;
+
+    .nav-top {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: linear-gradient(to right, rgba(56,189,248,0.15), rgba(147,51,234,0.15));
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 12px;
-      color: #a5b4fc;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
     }
-    header {
-      padding-bottom: 32px;
-      border-bottom: 1px solid rgba(148,163,184,0.35);
-      margin-bottom: 32px;
+
+    .logo-area h1 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
-    h1 {
-      font-size: clamp(28px, 5vw, 40px);
-      margin: 16px 0 12px;
-      background: linear-gradient(to right, #e5e7eb, #a5b4fc);
-      -webkit-background-clip: text;
-      color: transparent;
+
+    .logo-sub {
+      font-size: 0.8rem;
+      opacity: 0.8;
     }
-    .subtitle {
-      font-size: 15px;
-      max-width: 680px;
-      color: #cbd5f5;
-    }
-    .badge-row {
+
+    .nav-links {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 12px;
-      font-size: 11px;
-      color: #94a3b8;
+      font-size: 0.85rem;
     }
 
-    /* Layout */
-    main {
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(4px);
+      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr);
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
       gap: 24px;
-    }
-    @media (max-width: 900px) {
-      main {
-        grid-template-columns: 1fr;
-      }
+      align-items: center;
+      padding-top: 8px;
+      padding-bottom: 8px;
     }
 
-    .card {
-      background: radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 50%),
-                  radial-gradient(circle at bottom right, rgba(147,51,234,0.18), transparent 55%),
-                  #020617;
-      border-radius: 18px;
-      border: 1px solid rgba(148,163,184,0.35);
-      padding: 18px 18px 20px;
-      box-shadow: 0 18px 60px rgba(15,23,42,0.9);
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(248,250,252,0.06), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-    .card > * { position: relative; z-index: 1; }
-
-    h2 {
-      font-size: 18px;
+    .hero-main-title {
+      font-size: 1.9rem;
       margin: 0 0 8px;
-      color: #e5e7eb;
+      font-weight: 700;
     }
+
+    .hero-sub-title {
+      font-size: 0.95rem;
+      opacity: 0.92;
+      margin-bottom: 12px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-box {
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.35));
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-box-title {
+      font-size: 0.8rem;
+      opacity: 0.85;
+      margin-bottom: 4px;
+    }
+
+    .hero-box-main {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-box-sub {
+      opacity: 0.8;
+      font-size: 0.8rem;
+    }
+
+    main {
+      padding: 28px 16px 40px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e1e4f0;
+    }
+
+    h2.section-title {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title span.badge {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      border: 1px solid #c7d2fe;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-bottom: 12px;
+    }
+
     h3 {
-      font-size: 15px;
-      margin: 16px 0 6px;
-      color: #e5e7eb;
+      font-size: 1rem;
+      margin-top: 14px;
+      margin-bottom: 6px;
     }
-    p { font-size: 14px; }
+
+    h4 {
+      font-size: 0.95rem;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      margin: 4px 0 8px;
+      font-size: 0.9rem;
+    }
 
     ul {
-      padding-left: 18px;
-      margin: 6px 0 4px;
-      font-size: 13px;
+      margin: 4px 0 8px 1.1rem;
+      padding-left: 0.5rem;
     }
-    li + li { margin-top: 2px; }
 
-    .tag-row {
+    li {
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
-    .tag {
-      font-size: 10px;
+
+    .tag-chip {
+      font-size: 0.75rem;
+      padding: 3px 9px;
       border-radius: 999px;
-      padding: 2px 8px;
-      border: 1px solid rgba(148,163,184,0.4);
-      color: #9ca3af;
+      border: 1px solid #d4d4ff;
+      background: #f3f4ff;
+      color: #334155;
     }
 
-    /* Diagram */
-    .diagram-wrapper {
-      margin-top: 8px;
-      padding: 10px 10px 12px;
-      border-radius: 16px;
-      border: 1px dashed rgba(148,163,184,0.55);
-      background: rgba(15,23,42,0.9);
-      font-size: 12px;
-    }
-    .diagram-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #9ca3af;
-      margin-bottom: 6px;
-    }
-    .diagram-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-    }
-    @media (max-width: 900px) {
-      .diagram-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-    .node {
-      border-radius: 14px;
-      padding: 8px 9px;
-      background: linear-gradient(to bottom right, rgba(15,23,42,0.9), rgba(17,24,39,0.9));
-      border: 1px solid rgba(148,163,184,0.55);
-      position: relative;
-      min-height: 60px;
-    }
-    .node span.label {
-      display: inline-block;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #a5b4fc;
+    .kv-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
       margin-bottom: 4px;
-    }
-    .node strong {
-      font-size: 12px;
-      display: block;
-      margin-bottom: 2px;
-      color: #e5e7eb;
-    }
-    .node small {
-      display: block;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-    .arrow-down {
-      text-align: center;
-      font-size: 16px;
-      margin: 4px 0;
-      color: #64748b;
+      font-size: 0.9rem;
     }
 
-    /* Right column */
-    .key-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 10px;
+    .kv-table th,
+    .kv-table td {
+      border-bottom: 1px solid #e5e7eb;
+      padding: 4px 0;
+      text-align: left;
     }
-    .metric {
-      background: rgba(15,23,42,0.9);
+
+    .kv-table th {
+      width: 120px;
+      color: #6b7280;
+      font-weight: 500;
+      padding-right: 12px;
+    }
+
+    .highlight-box {
       border-radius: 12px;
-      padding: 8px 10px;
-      border: 1px solid rgba(148,163,184,0.4);
-      font-size: 12px;
+      border: 1px dashed #c7d2fe;
+      background: #f8fafc;
+      padding: 10px 12px;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #1e293b;
     }
-    .metric-label {
-      font-size: 11px;
-      color: #9ca3af;
-    }
-    .metric-value {
-      font-size: 15px;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-    .metric-sub {
-      font-size: 11px;
+
+    footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.8rem;
       color: #94a3b8;
     }
 
-    /* Table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 12px;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    th, td {
-      padding: 6px 8px;
-      border-bottom: 1px solid rgba(51,65,85,0.8);
-    }
-    th {
-      background: rgba(15,23,42,0.95);
-      text-align: left;
-      font-weight: 500;
-      color: #cbd5e1;
-    }
-    tr:last-child td {
-      border-bottom: none;
-    }
-    tr:nth-child(even) td {
-      background: rgba(15,23,42,0.7);
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
-    /* Sections */
-    section + section {
-      margin-top: 18px;
-    }
-    .section-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 8px;
-    }
-    .section-title-row small {
-      font-size: 11px;
-      color: #9ca3af;
-    }
+    @media (max-width: 640px) {
+      header {
+        padding: 20px 12px 14px;
+      }
 
-    .footnote {
-      margin-top: 18px;
-      font-size: 11px;
-      color: #6b7280;
+      .hero-main-title {
+        font-size: 1.5rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      main {
+        padding: 20px 12px 28px;
+      }
+
+      .section-card {
+        padding: 16px 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="pill">
-        <span>Diamond RWA · Profit-Sharing NFT</span>
+  <!-- HEADER / HERO -->
+  <header>
+    <div class="max-width">
+      <div class="nav-top">
+        <div class="logo-area">
+          <h1>TransDia / Pearl</h1>
+          <div class="logo-sub">보석용·산업용 다이아몬드 & NFT·RWA 솔루션 기업</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#section-1">회사 개요</a>
+          <a href="#section-2">사업 구조</a>
+          <a href="#section-3">핵심 경쟁력</a>
+          <a href="#section-4">시장 기회</a>
+          <a href="#section-5">비즈니스 모델</a>
+          <a href="#section-6">비전</a>
+          <a href="#section-7">향후 계획</a>
+          <a href="#section-8">연락처</a>
+        </nav>
       </div>
-      <h1>Diamond-Based Profit-Sharing NFT & Arbitrage Pool</h1>
-      <p class="subtitle">
-        200달러짜리 투명 랩그로운 다이아몬드를 컬러링·감정하여 부가가치를 높이고,
-        해당 다이아몬드를 기반으로 한 수익배당형 NFT를 발행합니다.
-        NFT 판매대금은 아비트리지 풀에 운용하고, NFT 스테이킹을 통하여
-        연 8~10% 수준의 스테이블코인 보상을 지급하며,
-        특정 토큰을 함께 스테이킹하면 최대 +2%의 부스터 이율을 제공합니다.
-      </p>
-      <div class="badge-row">
-        <span>실물 담보 (RWA)</span>
-        <span>수익배당형 NFT</span>
-        <span>DEX 스테이킹</span>
-        <span>Arbitrage 수익 기반</span>
-      </div>
-    </header>
 
-    <main>
-      <!-- LEFT: Flow & Logic -->
-      <div>
-        <!-- High-level model -->
-        <section class="card">
-          <h2>비즈니스 모델 한 눈에 보기</h2>
-          <p>
-            이 모델은 <strong>① 물리적 가치 상승(컬러링 다이아)</strong>과 
-            <strong>② DeFi 아비트리지 수익</strong>을 결합하여,
-            <strong>수익배당형 다이아몬드 NFT</strong> 홀더에게 안정적인 스테이블코인 수익을 제공합니다.
+      <div class="hero">
+        <div>
+          <p class="hero-main-title">미래형 다이아몬드 산업을 주도하는<br />글로벌 첨단소재 &amp; Web3 플랫폼</p>
+          <p class="hero-sub-title">
+            트랜스다이아(TransDia)는 보석 시장의 안정적 수익과 산업용 다이아몬드의
+            폭발적 성장성을 동시에 충족하는 듀얼 엔진 비즈니스 모델을 기반으로,
+            Web3 기반 NFT·RWA 시장과 반도체·양자센서·바이오 산업을 연결하는 혁신
+            플랫폼을 구축합니다.
+          </p>
+          <div class="hero-tags">
+            <span class="hero-tag">Diamond Manufacturing</span>
+            <span class="hero-tag">RWA NFT</span>
+            <span class="hero-tag">Thermal Diamond</span>
+            <span class="hero-tag">Quantum NV Sensor</span>
+            <span class="hero-tag">Bio &amp; Semiconductor</span>
+          </div>
+        </div>
+        <div class="hero-box">
+          <div class="hero-box-title">Company Snapshot</div>
+          <div class="hero-box-main">
+            보석용 &amp; 산업용 다이아몬드 · NFT · RWA · 첨단소재 통합 플랫폼
+          </div>
+          <div class="hero-box-sub">
+            • 법인명(안): 주식회사 펄 (Pearl) / 주식회사 트랜스다이아 (TransDia)<br />
+            • 비즈니스 축: 보석용 다이아몬드 + 산업용 다이아몬드 듀얼 모델<br />
+            • 핵심: 컬러링·제조·NFT·RWA·열전도·양자·바이오·반도체
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <div class="max-width">
+
+      <!-- 1. 회사 개요 -->
+      <section id="section-1">
+        <div class="section-card">
+          <h2 class="section-title">
+            1. 회사 개요
+            <span class="badge">Company Overview</span>
+          </h2>
+          <p class="section-subtitle">
+            미래형 다이아몬드 산업과 Web3·첨단산업을 연결하는 하이브리드 소재 기업
           </p>
 
-          <div class="diagram-wrapper">
-            <div class="diagram-title">End-to-End Value Flow</div>
-            <div class="diagram-grid">
-              <div class="node">
-                <span class="label">Step 1 · Off-chain</span>
-                <strong>다이아몬드 확보</strong>
-                <small>
-                  초기 자본으로 200$ 투명 랩그로운 다이아 구매<br />
-                  전자빔 + 열처리 컬러링 &amp; 감정
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 2 · Value Upgrade</span>
-                <strong>컬러링 &amp; 감정</strong>
-                <small>
-                  색 변화 및 희소 컬러 확보<br />
-                  예: 200$ → 300~400$ 가치
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 3 · On-chain</span>
-                <strong>수익배당형 NFT 발행</strong>
-                <small>
-                  다이아 1개당 10 NFT<br />
-                  NFT 1개 ≈ 40$
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 4 · Treasury</span>
-                <strong>Arbitrage Pool 운용</strong>
-                <small>
-                  NFT 판매대금을 아비트리지/DeFi에 투입<br />
-                  목표 수익률 예: 연 12~20%
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 5 · Staking</span>
-                <strong>DEX NFT 스테이킹</strong>
-                <small>
-                  NFT를 DEX에 스테이킹<br />
-                  연 8~10% 스테이블코인 수익
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 6 · Boost</span>
-                <strong>이율 부스터</strong>
-                <small>
-                  특정 토큰 1~2개 동시 스테이킹 시<br />
-                  최대 +2% 추가 APR
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 7 · Profit Split</span>
-                <strong>수익 배분</strong>
-                <small>
-                  아비트리지 수익 → NFT 홀더 보상 지급<br />
-                  잔여분은 프로젝트 운영·R&amp;D 재투자
-                </small>
-              </div>
-              <div class="node">
-                <span class="label">Step 8 · Reporting</span>
-                <strong>투명한 리포팅</strong>
-                <small>
-                  다이아 정보·감정서·수익률<br />
-                  온체인/오프체인 정기 공개
-                </small>
-              </div>
-            </div>
-          </div>
-
-          <div class="tag-row">
-            <span class="tag">RWA Diamond</span>
-            <span class="tag">Profit-Sharing Only (소유권 X)</span>
-            <span class="tag">Stablecoin Rewards</span>
-          </div>
-        </section>
-
-        <!-- Mechanics -->
-        <section class="card" style="margin-top:16px;">
-          <div class="section-title-row">
-            <h2>핵심 구조 · How It Works</h2>
-            <small>Off-chain 실물 가치 + On-chain 수익 배당</small>
-          </div>
-
-          <h3>1. 실물 다이아몬드 &amp; 컬러링</h3>
-          <ul>
-            <li>초기 자본으로 <strong>200달러 수준의 투명 랩그로운 다이아몬드</strong>를 매입.</li>
-            <li>전자빔 + 열처리 컬러링, 후속 열처리 및 감정을 통해 <strong>색상·희소성 업그레이드</strong>.</li>
-            <li>컬러 변화 데이터는 향후 <strong>과학 기반 RWA 리포트</strong>로도 재활용 가능.</li>
-          </ul>
-
-          <h3>2. 수익배당형 NFT 발행 (Fraction-like, Ownership X)</h3>
-          <ul>
-            <li>다이아 1개 기준, <strong>10개의 NFT</strong> 발행 (고정 수량, 재발행 불가).</li>
-            <li>각 NFT는 다이아의 <strong>소유권이 아닌, 아비트리지 풀 수익 배당권</strong>을 의미.</li>
-            <li>예시 가격: NFT 1개 ≈ 40달러 → 다이아 1개당 약 400달러 조달.</li>
-          </ul>
-
-          <h3>3. NFT 판매대금 → Arbitrage Pool로 이동</h3>
-          <ul>
-            <li>모든 NFT 판매대금은 <strong>Arbitrage/DeFi 운용 풀</strong>에 적립.</li>
-            <li>목표 수익률: 연 12~20% (시장 상황에 따라 탄력 조정).</li>
-            <li>풀은 온체인 트래킹 및 월/분기 단위 리포트 제공.</li>
-          </ul>
-
-          <h3>4. DEX NFT 스테이킹 &amp; 보상</h3>
-          <ul>
-            <li>NFT 보유자는 제휴 DEX(예: VyFi)에 NFT를 <strong>스테이킹</strong>할 수 있음.</li>
-            <li>기본 APR: <strong>연 8~10% 수준의 스테이블코인 보상</strong>을 목표.</li>
-            <li>추가 조건 (<strong>프로젝트 토큰·DEX 토큰 동시 스테이킹</strong> 등)을 만족하면 APR 최대 +2% 부스터.</li>
-          </ul>
-
-          <h3>5. 수익 분배 로직 (예시)</h3>
-          <ul>
-            <li>풀의 <strong>총 수익률: 16%</strong>라고 가정하면,</li>
-            <li>그 중 평균 <strong>8~10%는 NFT 홀더에게 스테이블코인으로 배당</strong>.</li>
-            <li>잔여 6~8%는 <strong>운영비, 리스크 대비, 컬러링 R&amp;D, 신규 다이아 매입</strong>에 사용.</li>
-          </ul>
-        </section>
-
-        <!-- On-chain design -->
-        <section class="card" style="margin-top:16px;">
-          <div class="section-title-row">
-            <h2>NFT &amp; Smart Contract 구조 (요약)</h2>
-            <small>Cardano 기반 수익배당형 RWA NFT</small>
-          </div>
-
-          <h3>1. NFT 메타데이터 (주요 필드)</h3>
-          <ul>
-            <li><strong>underlying_asset</strong>: 다이아 ID, 컬러링 방식, 캐럿, 감정 결과.</li>
-            <li><strong>profit_right</strong>: 이 NFT가 가지는 수익 배당 비율(예: 1/10), 목표 APR.</li>
-            <li><strong>staking</strong>: 어느 DEX에서, 어떤 리워드(스테이블코인)를, 얼마마다 지급.</li>
-            <li><strong>issuer</strong>: TransDia / Silver Edge 등 발행 주체 정보.</li>
-          </ul>
-
-          <h3>2. 스마트컨트랙트 컴포넌트</h3>
-          <ul>
-            <li><strong>NFT Minting Contract</strong> – 다이아당 10개 NFT 발행, 재발행/증발 불가.</li>
-            <li><strong>Staking Contract</strong> – NFT 예치, 예치 기간 계산, APR·부스터 적용.</li>
-            <li><strong>Reward Pool Contract</strong> – 아비트리지 수익이 들어오는 풀, 월별 보상 계산 및 분배.</li>
-            <li><strong>Oracle / Reporting Layer</strong> – 감정 정보, 수익률, 리포트 해시를 온체인에 기록.</li>
-          </ul>
-
-          <h3>3. 투자자의 관점</h3>
-          <ul>
-            <li>실물 다이아가 <strong>프로젝트 자산</strong>으로 백업되어 있다는 점에서 신뢰도 확보.</li>
-            <li>NFT는 언제든지 <strong>2차 시장에서 매도</strong> 가능 (유동성).</li>
-            <li>스테이킹을 통해 <strong>예측 가능한 수익률(8~12%)</strong>을 기대할 수 있음.</li>
-          </ul>
-        </section>
-      </div>
-
-      <!-- RIGHT: Numbers & ROI & FAQ style -->
-      <div>
-        <section class="card">
-          <h2>대표 예시: 1개 다이아 · 10개 NFT</h2>
-          <p style="font-size:13px;">
-            아래는 <strong>200달러 다이아몬드 1개</strong>를 기준으로 한 단순화된 수치 예시입니다.
-            실제 수익률과 수치는 시장 상황 및 아비트리지 전략에 따라 조정 가능합니다.
-          </p>
-
-          <div class="key-metrics">
-            <div class="metric">
-              <div class="metric-label">다이아 원가 (투명)</div>
-              <div class="metric-value">$200</div>
-              <div class="metric-sub">컬러링 전, 공업·보석용 랩그로운</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">컬러링 후 가치</div>
-              <div class="metric-value">$300 ~ $400</div>
-              <div class="metric-sub">감정 결과 및 컬러 희소성에 따라</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">NFT 발행 수량</div>
-              <div class="metric-value">10 개</div>
-              <div class="metric-sub">1 NFT ≈ $40 (예시)</div>
-            </div>
-            <div class="metric">
-              <div class="metric-label">연 수익률 구조</div>
-              <div class="metric-value">8~12% APR</div>
-              <div class="metric-sub">기본 + 부스터 포함 구간</div>
-            </div>
-          </div>
-
-          <table>
-            <thead>
-              <tr>
-                <th>항목</th>
-                <th>값 (예시)</th>
-                <th>설명</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>다이아 원가</td>
-                <td>$200</td>
-                <td>초기 자본으로 매입, 컬러링 및 감정 비용은 별도 R&amp;D 항목</td>
-              </tr>
-              <tr>
-                <td>총 NFT 판매금</td>
-                <td>$400 (10 × $40)</td>
-                <td>전액 Arbitrage Pool로 투입</td>
-              </tr>
-              <tr>
-                <td>Arbitrage 풀 수익률</td>
-                <td>예: 연 16%</td>
-                <td>전략에 따라 12~20% 구간 목표</td>
-              </tr>
-              <tr>
-                <td>투자자 보상</td>
-                <td>연 8~10%</td>
-                <td>스테이블코인 APR, NFT 스테이킹 기준</td>
-              </tr>
-              <tr>
-                <td>부스터 보상</td>
-                <td>+2% (최대)</td>
-                <td>특정 토큰 동시 스테이킹 조건 충족 시</td>
-              </tr>
-              <tr>
-                <td>프로젝트 몫</td>
-                <td>잔여 6~8%</td>
-                <td>운영비, 리스크 대비, 컬러링 연구 &amp; 재투자</td>
-              </tr>
-            </tbody>
+          <table class="kv-table">
+            <tr>
+              <th>회사명 (안)</th>
+              <td>주식회사 펄 (Pearl) / 주식회사 트랜스다이아 (TransDia)</td>
+            </tr>
+            <tr>
+              <th>사업분야</th>
+              <td>보석용 및 산업용 다이아몬드 종합 제조·가공·NFT·RWA 솔루션 기업</td>
+            </tr>
+            <tr>
+              <th>설립목적</th>
+              <td>
+                미래형 다이아몬드 산업을 주도하는 글로벌 첨단소재 기업으로 성장하며,
+                Web3 기반 NFT·RWA 시장과 첨단 산업(반도체·양자센서·바이오)을 연결하는
+                혁신 플랫폼 구축
+              </td>
+            </tr>
           </table>
 
-          <p class="footnote">
-            ※ 위 수치는 이해를 돕기 위한 예시이며, 실제 사업 모델에서는
-            규제 환경, 시장 상황, DEX 파트너 협의에 따라 조정됩니다.
-          </p>
-        </section>
-
-        <section class="card" style="margin-top:16px;">
-          <div class="section-title-row">
-            <h2>Arbitrage Pool · ROI 개념 요약</h2>
-            <small>간단한 경제 논리</small>
+          <div class="highlight-box">
+            트랜스다이아는 보석 시장의 안정적 수익과 산업용 다이아몬드의 폭발적
+            성장성을 동시에 충족하는 <strong>듀얼 엔진 비즈니스 모델</strong>을
+            기반으로 운영됩니다.
           </div>
-          <p style="font-size:13px;">
-            이 모델의 핵심은 <strong>“실제 수익이 있는 풀에서 나오는 배당”</strong>이라는 점입니다.
-            NFT 홀더에게 지급하는 8~10% APR은,
-            아비트리지 풀에서 발생하는 12~20% 수익 중 일부일 뿐입니다.
-          </p>
-          <ul style="font-size:13px;">
-            <li><strong>Gross APY (풀 전체 수익률)</strong>: 예시 16%</li>
-            <li><strong>Investor APR (NFT 보유자)</strong>: 평균 8~10%</li>
-            <li><strong>Operator Margin</strong>: 6~8% (리스크 대비 + R&amp;D)</li>
-          </ul>
-          <p style="font-size:13px;">
-            따라서, <strong>Ponzi 구조가 아니라</strong> 실질적인 Arbitrage/투자 수익을 바탕으로
-            설계된 구조임을 명확히 설명할 수 있습니다.
-          </p>
-        </section>
+        </div>
+      </section>
 
-        <section class="card" style="margin-top:16px;">
-          <h2>투자자 &amp; 파트너를 위한 핵심 메시지</h2>
-          <ul style="font-size:13px;">
-            <li>실물 다이아몬드 + 과학적 컬러링 연구를 기반으로 한 <strong>유일한 RWA NFT</strong>.</li>
-            <li>다이아 가격 상승은 프로젝트의 <strong>장부상 자산</strong>을 강화하고,
-                NFT 홀더는 <strong>아비트리지 수익 배당</strong>에 참여.</li>
-            <li>DEX와 협업하여 NFT 스테이킹/부스터 구조를 설계해
-                <strong>DeFi 생태계와 자연스럽게 연결</strong>.</li>
-            <li>모든 온체인·오프체인 데이터(감정서, 컬러링 조건, 수익률)를
-                정기적으로 공개하여 <strong>투명성 확보</strong>.</li>
-          </ul>
-          <p style="font-size:12px; color:#9ca3af; margin-top:10px;">
-            이 페이지의 내용을 기반으로, 투자자용 Pitch Deck, Catalyst 제안서, DEX 파트너십 제안서 등을
-            쉽게 확장할 수 있습니다.
+      <!-- 2. 사업 구조 -->
+      <section id="section-2">
+        <div class="section-card">
+          <h2 class="section-title">
+            2. 사업 구조 (Dual Business Model)
+            <span class="badge">Business Structure</span>
+          </h2>
+          <p class="section-subtitle">
+            보석용 다이아몬드 &amp; 산업용 다이아몬드의 투트랙 성장 전략
           </p>
-        </section>
-      </div>
-    </main>
-  </div>
+
+          <p>트랜스다이아의 사업은 크게 <strong>두 개의 축</strong>으로 구성됩니다.</p>
+
+          <div class="grid-2">
+            <!-- A. 보석용 -->
+            <div>
+              <h3>🔷 A. 보석용 다이아몬드 사업부</h3>
+              <p>고부가가치 소비재 시장 타겟</p>
+
+              <h4>1) 다이아몬드 도소매</h4>
+              <ul>
+                <li>해외 공급 파트너와 연계한 수입 및 온라인·오프라인 판매</li>
+                <li>보석 시장 기반 스테디한 현금흐름 확보</li>
+              </ul>
+
+              <h4>2) 다이아몬드 NFT (RWA NFT)</h4>
+              <ul>
+                <li>컬러링·감정 완료 실물 다이아몬드를 NFT로 발행</li>
+                <li>Web3 시장을 대상으로 한 글로벌 판매</li>
+                <li>실물 보관 + NFT 소유권 구조 (RWA 기반 자산)</li>
+              </ul>
+
+              <h4>3) 다이아몬드 대여 (Leasing)</h4>
+              <ul>
+                <li>금융기관·전시·촬영·패션·NFT 프로젝트 대상 다이아몬드 대여</li>
+                <li>반복적 월간 수익 모델 구축</li>
+              </ul>
+
+              <h4>4) 다이아몬드 임가공 (Value Enhancement)</h4>
+              <ul>
+                <li>전자빔(E-beam)·열처리(HTA) 기반 컬러링 기술</li>
+                <li>저가 다이아 → 고부가 다이아로 재탄생</li>
+                <li>보석용뿐 아니라 산업적 응용에도 활용 가능</li>
+              </ul>
+            </div>
+
+            <!-- B. 산업용 -->
+            <div>
+              <h3>🔷 B. 산업용 다이아몬드 사업부</h3>
+              <p>첨단산업·미래기술 기반 고수익 모델</p>
+
+              <h4>1) 열전도용 다이아몬드 (Heat Spreaders)</h4>
+              <ul>
+                <li>반도체·전력소자(GaN/SiC)·우주/군수 전자장비용</li>
+                <li>다이아몬드 고열전도(≈ 2000 W/mK)를 활용한 패키징 부품 제조</li>
+              </ul>
+
+              <h4>2) 양자센서용 다이아몬드 (NV-Center Diamonds)</h4>
+              <ul>
+                <li>자력센서, 위성항법, 의료 이미징, 양자컴퓨팅 분야</li>
+                <li>NV 센터 생성 기술 판매 및 고정밀 소재 공급</li>
+              </ul>
+
+              <h4>3) 바이오·의료용 다이아몬드</h4>
+              <ul>
+                <li>Lab-on-Diamond, 바이오센서, 의료 분석 디바이스 제조</li>
+                <li>고내구성·생체적합성 특성을 가진 핵심 소재</li>
+              </ul>
+
+              <h4>4) 반도체용 다이아몬드 부품</h4>
+              <ul>
+                <li>Diamond-coated wafer, 레이저 광학 부품</li>
+                <li>고전력·고온 환경용 핵심 소재 공급</li>
+              </ul>
+
+              <h4>5) 기술 라이선싱 &amp; OEM</h4>
+              <ul>
+                <li>다이아몬드 컬러링 기술 라이선스 판매</li>
+                <li>NV Center Implantation 기술 공급</li>
+                <li>Thermal Diamond 제조 기술 컨설팅 및 OEM 계약</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. 핵심 경쟁력 -->
+      <section id="section-3">
+        <div class="section-card">
+          <h2 class="section-title">
+            3. 핵심 경쟁력 (Core Competencies)
+            <span class="badge">Strengths</span>
+          </h2>
+          <p class="section-subtitle">
+            소재·공정·블록체인·산업 네트워크가 결합된 복합 경쟁력
+          </p>
+
+          <ul>
+            <li>✔ <strong>고부가가치 컬러링 기술 (E-beam + HTA)</strong></li>
+            <li>✔ <strong>보석용 + 산업용을 모두 커버하는 하이브리드 포트폴리오</strong></li>
+            <li>✔ <strong>NFT·블록체인 기반 RWA 서비스 제공 역량</strong></li>
+            <li>✔ <strong>글로벌 공급망 + 고유 기술 기반 제조 능력</strong></li>
+            <li>✔ <strong>반도체·양자·바이오까지 확장 가능한 기술 스케일업 구조</strong></li>
+          </ul>
+
+          <div class="tag-list">
+            <span class="tag-chip">E-beam Coloring</span>
+            <span class="tag-chip">Heat Treatment (HTA)</span>
+            <span class="tag-chip">Diamond RWA NFT</span>
+            <span class="tag-chip">mPCVD Manufacturing</span>
+            <span class="tag-chip">Quantum NV Centers</span>
+            <span class="tag-chip">Bio-compatible Diamond</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 시장 기회 -->
+      <section id="section-4">
+        <div class="section-card">
+          <h2 class="section-title">
+            4. 시장 기회 (Market Opportunity)
+            <span class="badge">Market</span>
+          </h2>
+          <p class="section-subtitle">
+            보석 시장의 안정성과 산업용 시장의 고성장을 동시에 타겟팅
+          </p>
+
+          <h3>보석 시장</h3>
+          <ul>
+            <li>글로벌 다이아몬드 시장: 약 1,000억 달러 규모</li>
+            <li>컬러 다이아몬드 및 스토리텔링 기반 고급화 수요 증가</li>
+          </ul>
+
+          <h3>산업용 시장</h3>
+          <ul>
+            <li>Thermal Diamond 시장 급성장 (전력반도체·AI칩 수요 폭증)</li>
+            <li>Quantum NV 센서 시장: 2030년까지 연 20% 이상 성장 전망</li>
+            <li>Bio Lab-on-Diamond 시장: 초기 성장 단계 → 선점 가능성 큼</li>
+          </ul>
+
+          <div class="highlight-box">
+            트랜스다이아는 <strong>보석용 가치 + 산업용 기능성 + Web3 금융성</strong>을
+            동시에 확보함으로써, 기존 다이아몬드 산업 대비 차별화된 성장 곡선을
+            목표로 합니다.
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 비즈니스 모델 요약 -->
+      <section id="section-5">
+        <div class="section-card">
+          <h2 class="section-title">
+            5. 비즈니스 모델 요약 (Revenue Streams)
+            <span class="badge">Model</span>
+          </h2>
+          <p class="section-subtitle">
+            실물 판매 + NFT·RWA + 산업용 소재 + 기술 라이선스로 구성된 다각화 수익 구조
+          </p>
+
+          <ol>
+            <li>다이아몬드 도소매</li>
+            <li>Diamond RWA NFT 판매</li>
+            <li>다이아몬드 대여(Leasing)</li>
+            <li>컬러링 임가공 서비스</li>
+            <li>Diamond Heat Spreader 제조 및 B2B 판매</li>
+            <li>Quantum NV Diamond 소재 제조 및 공급</li>
+            <li>Bio/반도체용 다이아몬드 부품 제조</li>
+            <li>기술 이전(Licensing) 및 OEM 계약</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 6. 회사 비전 -->
+      <section id="section-6">
+        <div class="section-card">
+          <h2 class="section-title">
+            6. 회사 비전 (Vision)
+            <span class="badge">Vision</span>
+          </h2>
+          <p class="section-subtitle">
+            다이아몬드를 미래 산업의 핵심 인프라 소재로 재정의
+          </p>
+
+          <p>
+            펄(또는 트랜스다이아)은
+            <strong>“미래 산업의 핵심 재료로서의 다이아몬드”</strong>를 주도하는
+            글로벌 기술 기업을 목표로 합니다.
+          </p>
+          <p>
+            보석 → Web3 → 산업용 → 국가전략산업으로 확장되는
+            <strong>초고부가가치 다이아몬드 기술기업</strong>으로 성장하겠습니다.
+          </p>
+        </div>
+      </section>
+
+      <!-- 7. 향후 계획 -->
+      <section id="section-7">
+        <div class="section-card">
+          <h2 class="section-title">
+            7. 향후 계획 (Roadmap)
+            <span class="badge">Roadmap</span>
+          </h2>
+          <p class="section-subtitle">
+            파일럿 라인 → Web3 RWA → 산업 파트너십 → 글로벌 확장
+          </p>
+
+          <ul>
+            <li>산업용 mPCVD 장비 도입 및 파일럿 생산 라인 구축</li>
+            <li>Diamond RWA NFT 글로벌 론칭 (이더리움, 솔라나, 카르다노 등)</li>
+            <li>반도체·바이오 기업과 기술협력 MOU 체결</li>
+            <li>정부 첨단산업·R&amp;D 과제 참여 및 국가전략산업 연계</li>
+            <li>해외 지사 설립 및 수출 본격화</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8. 부록: 연락처 -->
+      <section id="section-8">
+        <div class="section-card">
+          <h2 class="section-title">
+            8. 부록: 회사 연락처 (Contact)
+            <span class="badge">Contact</span>
+          </h2>
+          <p class="section-subtitle">
+            향후 IR·파트너십·투자 관련 상세 정보는 아래 채널을 통해 안내 예정
+          </p>
+
+          <table class="kv-table">
+            <tr>
+              <th>대표</th>
+              <td>구 민</td>
+            </tr>
+            <tr>
+              <th>본사</th>
+              <td>대한민국</td>
+            </tr>
+            <tr>
+              <th>사업영역</th>
+              <td>다이아몬드 제조·NFT·반도체 소재·양자센서·바이오소재</td>
+            </tr>
+            <tr>
+              <th>문의</th>
+              <td>(추가 예정)</td>
+            </tr>
+          </table>
+
+          <div class="highlight-box">
+            ※ 본 페이지는 IR Company Profile용 요약본이며, 세부 재무계획·기술 로드맵·
+            파트너십 구조 등은 별도 IR 자료 및 NDA 체결 후 제공 가능합니다.
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+    <footer>
+      © <!-- 연도는 필요 시 수정 -->2025 TransDia / Pearl. All rights reserved.
+    </footer>
 </body>
 </html>
