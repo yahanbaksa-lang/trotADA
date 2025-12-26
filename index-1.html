@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEARL | 혁신적인 산업용 다이아몬드 솔루션</title>
+    <style>
+        /* 기본 설정 */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #00d1b2;
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --bg-light: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Pretendard', sans-serif; line-height: 1.6; color: var(--text-dark); scroll-behavior: smooth; }
+
+        /* 네비게이션 */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10%; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-color); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--text-dark); font-weight: 500; transition: 0.3s; }
+        nav ul li a:hover { color: var(--primary-color); }
+
+        /* 히어로 섹션 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; }
+        .btn {
+            padding: 12px 30px; background: var(--primary-color); color: white;
+            text-decoration: none; border-radius: 5px; transition: 0.3s;
+        }
+        .btn:hover { background: #004494; }
+
+        /* 공통 섹션 스타일 */
+        section { padding: 100px 10%; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 50px; position: relative; }
+        h2::after {
+            content: ''; display: block; width: 50px; height: 3px;
+            background: var(--primary-color); margin: 20px auto 0;
+        }
+
+        /* 제품/서비스 카드 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card {
+            padding: 40px; border: 1px solid #eee; border-radius: 10px;
+            transition: 0.3s; background: var(--bg-light);
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .card i { font-size: 3rem; color: var(--secondary-color); margin-bottom: 20px; }
+
+        /* 푸터 */
+        footer { background: #222; color: white; padding: 50px 10%; text-align: center; }
+        .footer-info { margin-bottom: 20px; font-size: 0.9rem; color: #bbb; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PEARL</div>
+        <ul>
+            <li><a href="#home">홈</a></li>
+            <li><a href="#about">회사소개</a></li>
+            <li><a href="#products">제품안내</a></li>
+            <li><a href="#contact">고객지원</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Diamond-Based Materials for the Next Frontier</h1>
+        <p>PEARL은 다이아몬드 전자·열·양자 물성을 활용한 산업·에너지·양자 기술용 첨단 소재를 개발·제조합니다.</p>
+        <a href="#about" class="btn">더 알아보기</a>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p style="max-width: 800px; margin: 0 auto;">
+            PEARL은 플라즈마 및 첨단 공학 기술을 바탕으로 다이아몬드의 전자·열·양자 물성을 통합한 <br>
+산업용 다이아몬드 플랫폼을 구축하고, 이를 기반으로 산업·에너지·양자 기술용 첨단 소재를 개발·제조합니다.
+        </p>
+    </section>
+
+    <section id="products" style="background: #f9f9f9;">
+        <h2>Key Technologies</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>BDDE 수처리 기술</h3>
+                <p><br>다이아몬드 전극(BDDE)의 높은 전기화학적 안정성과 내구성을 기반으로,
+장시간 운전이 가능한 고효율·저유지비 산업용 수처리 솔루션을 제공합니다.</p>
+            </div>
+            <div class="card">
+                <h3>AI 반도체용 다이아몬드 응용 제품</h3>
+                <p><br>다이아몬드의 탁월한 열전도 및 전기적 특성을 활용하여,
+AI 반도체의 발열 문제를 해결하는 차세대 히트 스프레더 및 핵심 열관리 소재를 개발합니다.</p>
+            </div>
+            <div class="card">
+                <h3>고부가 팬시 다이아몬드 제조 기술</h3>
+                <p><br>플라즈마, 전자빔 및 첨단 공정 기술을 통해 다이아몬드의 물성을 정밀 제어하여,
+산업·보석 시장을 동시에 겨냥한 고부가가치 팬시 다이아몬드 제조 기술을 확보합니다.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>문의사항이 있으시면 언제든 연락주세요.</p>
+        <p style="margin-top: 20px;"><strong>Email:</strong> hysleeper@gmail.com</p>
+        <p><strong>Location:</strong> 대전광역시 동구 대전대학교 기초과학관 2층 반도체공학과 PEAL 연구실</p>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            (주)PEARL | 대표자: 구민 | 사업자등록번호: 000-00-00000<br>
+            Copyright © 2025 PEARL. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
